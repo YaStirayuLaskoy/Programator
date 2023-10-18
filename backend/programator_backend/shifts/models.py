@@ -17,14 +17,14 @@ class Worker(models.Model):
 
 class Day(models.Model):
     """Модель для представления дней месяца."""
-    date = models.DateField()
+    date = models.DateField(unique=True)
 
     def __str__(self):
         return str(self.date)
 
 
 class Event(models.Model):
-    """Модель посещаемости."""
+    """Модель типа посещаемости (отпуск/выходной/.../)."""
     name = models.CharField(max_length=100)
 
     def __str__(self):
@@ -41,10 +41,11 @@ class Event(models.Model):
 
 
 class Shift(models.Model):
+    """Модель смены."""
     start_time = models.TimeField()
     end_time = models.TimeField()
     worker = models.ForeignKey(Worker, on_delete=models.CASCADE)
-    day = models.ForeignKey(Day, on_delete=models.CASCADE)
+    day = models.DateField()
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
 
     def __str__(self):

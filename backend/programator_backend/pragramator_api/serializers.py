@@ -10,12 +10,34 @@ class WorkerSerializer(serializers.ModelSerializer):
 
 
 class DaySerializer(serializers.ModelSerializer):
+    day = serializers.SerializerMethodField()
+    day_of_week = serializers.SerializerMethodField()
+
     class Meta:
         model = Day
-        fields = '__all__'
+        fields = ('date', 'day', 'day_of_week')
+
+    def get_day(self, obj):
+        return obj.date.strftime('%d')
+
+    def get_day_of_week(self, obj):
+        days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday',
+                        'Friday', 'Saturday', 'Sunday']
+        return days_of_week[obj.date.weekday()]
+
+    def validate_date(self, value):
+        if Day.objects.filter(date=value).exists():
+            raise serializers.ValidationError(
+                "День с такой датой уже существует."
+            )
+        return value
 
 
 class ShiftSerializer(serializers.ModelSerializer):
+    worker = WorkerSerializer()
+    # event = serializers.CharField(source='name')
+    event = serializers.StringRelatedField()
+
     class Meta:
         model = Shift
-        fields = ('start_time', 'end_time', 'worker', 'day', 'event')
+        fields = ('worker', 'start_time', 'end_time', 'day', 'event')
