@@ -20,49 +20,22 @@
 Чтобы понять, где будет использоваться:<br> [https://www.figma.com/file/Tba6UR1T3hiNtRNngitlit/BIA-Tech.-React.Тестовое?type=design&node-id=1345-21512&mode=design](https://www.figma.com/file/Tba6UR1T3hiNtRNngitlit/BIA-Tech.-React.%D0%A2%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5?type=design&node-id=1345-21512&mode=design)
 
 
-## Описание:
+## Описание возможностей:
 
 API для планировщика смен.
 
 - Есть возможность создать работников
+  
+  <img src="https://github.com/YaStirayuLaskoy/Programator/assets/122834885/fd100f6b-115c-4bf1-819d-4b5bb1269ea0" alt="Screenshot" width="50%" height="50%">
+
 - Работникиков можно отмечать (Работал/Отдыхал/Уволился/.../)
 - Работники могут отмечать начало и конец смены
 
-## Админка:
+  <img src="https://github.com/YaStirayuLaskoy/Programator/assets/122834885/705e8258-8908-41af-8997-67d61f021fd7" alt="Screenshot" width="50%" height="50%">
 
-login: admin
-password: admin
+- Рабочая Админка
 
-## Эндпоинты:
-Админка
-```
-http://127.0.0.1:8000/admin
-```
-
-API
-```
-http://127.0.0.1:8000/api
-```
-
-Работяги
-```
-http://127.0.0.1:8000/api/workers/
-```
-
-Смены
-```
-http://127.0.0.1:8000/api/shifts/
-```
-
-Дни
-```
-http://127.0.0.1:8000/api/days/
-```
-
-Тип активности
-```
-http://127.0.0.1:8000/api/events/
-```
+  <img src="https://github.com/YaStirayuLaskoy/Programator/assets/122834885/a7c1951c-85af-48b9-87c9-f3fe1a8b3ed1" alt="Screenshot" width="50%" height="50%">
 
 
 ## Как запустить:
@@ -104,6 +77,43 @@ python manage.py migrate
 ```
 python manage.py runserver
 ```
+
+## Админка:
+
+login: admin</br>
+password: admin
+
+## Эндпоинты:
+Админка
+```
+http://127.0.0.1:8000/admin
+```
+
+API
+```
+http://127.0.0.1:8000/api
+```
+
+Работяги
+```
+http://127.0.0.1:8000/api/workers/
+```
+
+Смены
+```
+http://127.0.0.1:8000/api/shifts/
+```
+
+Дни
+```
+http://127.0.0.1:8000/api/days/
+```
+
+Тип активности
+```
+http://127.0.0.1:8000/api/events/
+```
+
 
 ## Планы по развитию:
 
