@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from shifts.models import Worker, Day, Shift
+from shifts.models import Worker, Day, Shift, Event
 
 
 class WorkerSerializer(serializers.ModelSerializer):
@@ -33,11 +33,13 @@ class DaySerializer(serializers.ModelSerializer):
         return value
 
 
-class ShiftSerializer(serializers.ModelSerializer):
-    worker = WorkerSerializer()
-    # event = serializers.CharField(source='name')
-    event = serializers.StringRelatedField()
+class EventSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Event
+        fields = ('id', 'name')
 
+
+class ShiftSerializer(serializers.ModelSerializer):
     class Meta:
         model = Shift
         fields = ('worker', 'start_time', 'end_time', 'day', 'event')

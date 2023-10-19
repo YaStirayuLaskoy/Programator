@@ -31,21 +31,12 @@ class Event(models.Model):
         return self.name
 
 
-'''class EventWorker(models.Model):
-    """Модель посещаемости конкретного сотрудника."""
-    event = models.ForeignKey(Event, on_delete=models.CASCADE)
-    worker = models.ForeignKey(Worker, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return f"{self.event} {self.worker}"'''
-
-
 class Shift(models.Model):
     """Модель смены."""
     start_time = models.TimeField()
     end_time = models.TimeField()
     worker = models.ForeignKey(Worker, on_delete=models.CASCADE)
-    day = models.DateField()
+    day = models.ForeignKey(Day, on_delete=models.CASCADE)
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
 
     def __str__(self):

@@ -1,7 +1,8 @@
 from rest_framework import viewsets
 
-from shifts.models import Worker, Day, Shift
-from .serializers import WorkerSerializer, DaySerializer, ShiftSerializer
+from shifts.models import Worker, Day, Shift, Event
+from .serializers import (WorkerSerializer, DaySerializer, ShiftSerializer,
+                          EventSerializer)
 
 
 class WorkerViewSet(viewsets.ModelViewSet):
@@ -17,3 +18,8 @@ class DayViewSet(viewsets.ModelViewSet):
 class ShiftViewSet(viewsets.ModelViewSet):
     queryset = Shift.objects.all()
     serializer_class = ShiftSerializer
+
+
+class EventViewSet(viewsets.ModelViewSet):
+    queryset = Event.objects.all()
+    serializer_class = EventSerializer
